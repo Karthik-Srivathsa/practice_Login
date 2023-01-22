@@ -3,21 +3,26 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import React, { useState } from 'react';
 import { VisibilityOff } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({setAuth}) => {
     const [values,setValues] = useState({
             email:"",
             pass:"",
             showPass: false
         });
+        const Navigate = useNavigate();
         const handlePassVisibility = () =>{
             setValues({
                 ...values,
                 showPass: !values.showPass,
             })
         } 
+        function handleClick(){
+            Navigate("/LandingPage")
+        } 
     return (
-        <div>
+        <div setAuth={setAuth}>
             <Container maxWidth="sm">
             <Grid container 
             spacing={2} 
@@ -55,7 +60,7 @@ const Login = () => {
                 />
                 </Grid>
                 <Grid item>
-                <Button fullWidth variant="contained">Sign In</Button>
+                <Button onClick={handleClick} fullWidth variant="contained">Sign In</Button>
                 </Grid>
                 </Grid>
             </Paper>
