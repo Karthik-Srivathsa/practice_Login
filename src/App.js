@@ -3,7 +3,7 @@ import './App.css';
 import Login from './Components/Login';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { useState } from 'react';
-import LandingPage from './Components/LandingPage';
+import LandingPage from './Components/LandingPage.js';
 
 function App() {
   const[auth, setAuth] = useState(false);
